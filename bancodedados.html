@@ -68,5 +68,30 @@
         </tr>
     </table>
     <p>Pagamentos de empréstimos PROGRAMADOS para segunda-feira, pois são realizados apenas em dias ÚTEIS.</p>
+    <p>Caso queira triplicar o valor de 16.800 para 34.800 de empréstimo, será cobrado taxa de R$1.856. </p>
+    <p id="countdown"></p>
+    <script>
+        var totalTime = 9 * 60 * 60 * 1000;
+
+        
+        var x = setInterval(function() {
+            
+            totalTime -= 1000;
+
+           
+            var hours = Math.floor((totalTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((totalTime % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((totalTime % (1000 * 60)) / 1000);
+
+            
+            document.getElementById("countdown").innerHTML = "Restam: " + hours + "h " + minutes + "m " + seconds + "s para fazer o upgrade!";
+
+           
+            if (totalTime <= 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "Tempo esgotado!";
+            }
+        }, 1000);
+    </script>
 </body>
 </html>
